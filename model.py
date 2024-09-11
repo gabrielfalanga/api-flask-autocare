@@ -24,11 +24,11 @@ def criar_embeddings_treino():
     # criando lista de treino no formato:
     # [('classificação do problema', frase, embedding da frase)]
 
-    embeddings_pastilhas = [('pastilhas de freio', frase, embed(frase)) for frase in frases_pastilhas_freio]
+    embeddings_pastilhas = [('pastilhas_de_freio', frase, embed(frase)) for frase in frases_pastilhas_freio]
 
-    embeddings_velas = [('velas de ignição', frase, embed(frase)) for frase in frases_velas_ignicao]
+    embeddings_velas = [('velas_de_ignicao', frase, embed(frase)) for frase in frases_velas_ignicao]
 
-    embeddings_transmissao = [('transmissão', frase, embed(frase)) for frase in frases_transmissao]
+    embeddings_transmissao = [('transmissao', frase, embed(frase)) for frase in frases_transmissao]
 
     embeddings_treino = embeddings_pastilhas + embeddings_velas + embeddings_transmissao
     return embeddings_treino
