@@ -26,6 +26,9 @@ def criar_mensagem_problema(tipo):
         return ('Pelo que você descreveu, parece que o problema está relacionado ao superaquecimento do motor. '
             'Isso pode estar acontecendo devido à falta de fluido de arrefecimento, problemas no radiador ou '
             'no sistema de ventilação.')
+    elif tipo == 'bateria':
+        return ('Pelo que você disse, parece que o problema está relacionado à bateria do seu veículo. '
+                'Isso pode ocorrer quando a bateria está no fim de sua vida útil ou quando há falhas no sistema elétrico.')
     elif tipo == 'nao_identificado':
         return 'Desculpe, não entendi. Você poderia descrever sua situação mais detalhadamente?'
 
@@ -72,9 +75,12 @@ def identificar_servico(tipo_problema):
         return ('Para resolver esse problema é muito simples. Caso queira você pode realizar um agendamento em nossas oficinas parceiras. '
                 'O serviço completo custa em média R$100,00.')
     elif tipo_problema == 'superaquecimento_motor':
-        return ('O problema parece estar relacionado ao superaquecimento do motor. Para resolver, pode ser agendada uma revisão '
+        return ('Para resolver, pode ser agendada uma revisão '
                 'em uma de nossas oficinas parceiras. O custo do conserto pode variar entre R$250,00 e R$1.200,00, dependendo '
                 'da causa específica.')
+    elif tipo_problema == 'bateria':
+        return('Para resolver, você pode agendar uma troca em uma oficina parceira. '
+                'O custo médio para trocar a bateria é de aproximadamente R$500,00.')
     elif tipo_problema == 'nao_identificado':
         return ''
 
