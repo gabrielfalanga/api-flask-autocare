@@ -1,7 +1,7 @@
 import tensorflow_hub as hub
 import tensorflow_text
 from corpus import frases_pastilhas_freio, frases_velas_ignicao, frases_transmissao, frases_alinhamento, \
-frases_superaquecimento_motor, frases_bateria
+frases_superaquecimento_motor, frases_bateria, frases_cambio
 
 
 # carregando modelo
@@ -23,6 +23,7 @@ def criar_embeddings_treino():
     global frases_alinhamento
     global frases_superaquecimento_motor
     global frases_bateria
+    global frases_cambio
     # criando lista de treino no formato:
     # [('classificação do problema', frase, embedding da frase)]
 
@@ -38,8 +39,10 @@ def criar_embeddings_treino():
 
     embeddings_bateria = [("bateria", frase, embed(frase)) for frase in frases_bateria]
 
+    embeddings_cambio = [("cambio", frase, embed(frase)) for frase in frases_cambio]
+
     embeddings_treino = (embeddings_pastilhas + embeddings_velas + embeddings_transmissao + embeddings_alinhamento + embeddings_superaquecimento
-    + embeddings_bateria)
+    + embeddings_bateria + embeddings_cambio)
 
     return embeddings_treino
 

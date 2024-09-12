@@ -29,6 +29,9 @@ def criar_mensagem_problema(tipo):
     elif tipo == 'bateria':
         return ('Pelo que você disse, parece que o problema está relacionado à bateria do seu veículo. '
                 'Isso pode ocorrer quando a bateria está no fim de sua vida útil ou quando há falhas no sistema elétrico.')
+    elif tipo == "cambio":
+            return ('Pelo que você descreveu, o problema parece estar no câmbio do veículo. Isso pode incluir dificuldades ao engatar as marchas, '
+            'barulhos estranhos durante a troca de marchas, ou a sensação de trancos e irregularidades. É recomendável fazer uma revisão completa do sistema de câmbio.')
     elif tipo == 'nao_identificado':
         return 'Desculpe, não entendi. Você poderia descrever sua situação mais detalhadamente?'
 
@@ -81,6 +84,9 @@ def identificar_servico(tipo_problema):
     elif tipo_problema == 'bateria':
         return('Para resolver, você pode agendar uma troca em uma oficina parceira. '
                 'O custo médio para trocar a bateria é de aproximadamente R$500,00.')
+    elif tipo_problema == "cambio":
+        return ('Para resolver, você pode agendar uma inspeção ou manutenção em uma de nossas oficinas parceiras.' 
+                'O custo do conserto pode variar entre R$800,00 e R$3.000,00, dependendo da gravidade do problema e das peças necessárias.')
     elif tipo_problema == 'nao_identificado':
         return ''
 
