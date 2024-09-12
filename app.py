@@ -19,7 +19,7 @@ def criar_mensagem_problema(tipo):
     elif tipo == 'transmissao':
         return ('De acordo com meu conhecimento, a causa do que está acontecendo é um problema na transmissão do '
                 'veículo. Pode ser baixo nível de fluido de transmissão ou o fluido está sujo/contaminado.')
-    elif tipo = 'alinhamento':
+    elif tipo == 'alinhamento':
         return ('Pelo que você descreveu, o problema parece estar no alinhamento do veículo. Ele pode estar puxando '
                 'para um dos lados, o que indica que o alinhamento das rodas está fora do ideal.')
     elif tipo == 'superaquecimento_motor':
@@ -72,9 +72,9 @@ def identificar_servico(tipo_problema):
         return ('Para resolver esse problema é muito simples. Caso queira você pode realizar um agendamento em nossas oficinas parceiras. '
                 'O serviço completo custa em média R$100,00.')
     elif tipo_problema == 'superaquecimento_motor':
-    return ('O problema parece estar relacionado ao superaquecimento do motor. Para resolver, pode ser agendada uma revisão '
-            'em uma de nossas oficinas parceiras. O custo do conserto pode variar entre R$250,00 e R$1.200,00, dependendo '
-            'da causa específica.')
+        return ('O problema parece estar relacionado ao superaquecimento do motor. Para resolver, pode ser agendada uma revisão '
+                'em uma de nossas oficinas parceiras. O custo do conserto pode variar entre R$250,00 e R$1.200,00, dependendo '
+                'da causa específica.')
     elif tipo_problema == 'nao_identificado':
         return ''
 

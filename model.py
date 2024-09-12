@@ -3,6 +3,8 @@ import tensorflow_text
 from corpus import frases_pastilhas_freio
 from corpus import frases_velas_ignicao
 from corpus import frases_transmissao
+from corpus import frases_alinhamento
+from corpus import frases_superaquecimento_motor
 
 
 # carregando modelo
@@ -36,5 +38,12 @@ def criar_embeddings_treino():
 
     embeddings_superaquecimento = [("superaquecimento_motor", frase, embed(frase)) for frase in frases_superaquecimento_motor]
 
-    embeddings_treino = embeddings_pastilhas + embeddings_velas + embeddings_transmissao + embeddings_alinhamento
+    embeddings_treino = embeddings_pastilhas + embeddings_velas + embeddings_transmissao + embeddings_alinhamento + embeddings_superaquecimento
+
     return embeddings_treino
+
+
+if __name__ == '__main__':
+    lista = criar_embeddings_treino()
+    select = [item[0] for item in lista if item[0] == 'superaquecimento_motor']
+    print(select)
