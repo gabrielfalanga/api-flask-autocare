@@ -21,6 +21,7 @@ def criar_embeddings_treino():
     global frases_pastilhas_freio
     global frases_velas_ignicao
     global frases_transmissao
+    global frases_alinhamento
     # criando lista de treino no formato:
     # [('classificação do problema', frase, embedding da frase)]
 
@@ -30,5 +31,7 @@ def criar_embeddings_treino():
 
     embeddings_transmissao = [('transmissao', frase, embed(frase)) for frase in frases_transmissao]
 
-    embeddings_treino = embeddings_pastilhas + embeddings_velas + embeddings_transmissao
+    embeddings_alinhamento = [("alinhamento", frase, embed(frase)) for frase in frases_alinhamento]
+
+    embeddings_treino = embeddings_pastilhas + embeddings_velas + embeddings_transmissao + embeddings_alinhamento
     return embeddings_treino

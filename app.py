@@ -19,6 +19,9 @@ def criar_mensagem_problema(tipo):
     elif tipo == 'transmissao':
         return ('De acordo com meu conhecimento, a causa do que está acontecendo é um problema na transmissão do '
                 'veículo. Pode ser baixo nível de fluido de transmissão ou o fluido está sujo/contaminado.')
+    elif tipo = 'alinhamento':
+        return ('Pelo que você descreveu, o problema parece estar no alinhamento do veículo. Ele pode estar puxando '
+                'para um dos lados, o que indica que o alinhamento das rodas está fora do ideal.')
     elif tipo == 'nao_identificado':
         return 'Desculpe, não entendi. Você poderia descrever sua situação mais detalhadamente?'
 
@@ -61,6 +64,9 @@ def identificar_servico(tipo_problema):
     elif tipo_problema == 'transmissao':
         return ('A solução é simples! Você pode agendar uma revisão com uma de nossas oficinas parceiras. '
                 'O serviço completo, incluindo a troca do fluido de transmissão custa em torno de R$400,00.')
+    elif tipo_problema == 'alinhamento':
+        return ('Para resolver esse problema é muito simples. Caso queira você pode realizar um agendamento em nossas oficinas parceiras. '
+                'O serviço completo custa em média R$100,00.')
     elif tipo_problema == 'nao_identificado':
         return ''
 
