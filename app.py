@@ -100,29 +100,5 @@ def classificar():
     return jsonify({'tipo': tipo, 'response': response, 'servico': identificar_servico(tipo)})
 
 
-@app.route('/buscar-oficinas', methods=['GET'])
-def buscar_oficinas():
-    lista_oficinas = [
-        "Oficina do Betinho",
-        "Oficina Porto Seguro",
-        "André Autopeças"
-    ]
-    return jsonify({'oficinas': lista_oficinas})
-
-
-@app.route('/buscar-datas', methods=['GET'])
-def buscar_datas():
-    lista_datas = [
-        "12/09/24",
-        "13/09/24",
-        "16/09/24",
-        "17/09/24",
-        "18/09/24",
-        "20/09/24",
-        "21/09/24"
-    ]
-    return jsonify({'datas': lista_datas})
-
-
 if __name__ == '__main__':
     app.run(debug=True)
