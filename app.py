@@ -3,6 +3,7 @@ from flask_cors import CORS
 import numpy as np
 from model import embed
 from model import criar_embeddings_treino
+from oficinas import oficinas_cadastradas
 
 app = Flask(__name__)
 CORS(app)
@@ -94,10 +95,39 @@ def identificar_servico(tipo_problema):
 # Rota para receber dados do frontend
 @app.route('/classificar', methods=['POST'])
 def classificar():
-    data = request.json
-    entrada = data.get('input')
+    dados = request.json
+    entrada = dados.get('input')
     tipo, response = classificar_entrada(texto_entrada=entrada)
     return jsonify({'tipo': tipo, 'response': response, 'servico': identificar_servico(tipo)})
+
+
+def buscar_oficinas_disponiveis(data: str):
+    global oficinas_cadastradas
+
+    oficinas_disponiveis = []
+
+    for oficina in oficinas_cadastradas:
+        for data_dic in oficina['disponibilidade']:
+            if data_dic['data'] == data:
+                oficinas_disponiveis.append(oficina)
+
+    return oficinas_disponiveis
+
+
+@app.route('/buscar/oficinas', methods=['POST'])
+def buscar_oficinas():
+    dados = request.json
+    data = dados.get('data')
+    oficinas_disponiveis = buscar_oficinas_disponiveis(data)
+
+    # cria a chave 'horarios' somente com os horários da data buscada
+    for oficina in oficinas_disponiveis:
+        for data_dic in oficina['disponibilidade']:
+            if data_dic['data'] == data:
+                oficina['horarios'] = data_dic['horarios']
+                break
+
+    return jsonify({'oficinas': oficinas_disponiveis})
 
 
 if __name__ == '__main__':

@@ -6,7 +6,8 @@ frases_superaquecimento_motor, frases_bateria, frases_cambio
 
 # carregando modelo
 try:
-    model = hub.load("https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/multilingual/2")
+    # model = hub.load("https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/multilingual/2")
+    model = hub.load("C:/Users/Falanga/Documents/Universal Sentence Encoder/universal-sentence-encoder-tensorflow2-multilingual-v2")
 except Exception as e:
     print('Erro ao carregar o modelo: ', e)
 
