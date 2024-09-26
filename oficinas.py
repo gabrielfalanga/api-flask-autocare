@@ -1,5 +1,6 @@
 oficinas_cadastradas = [
     {
+        "id": 1,
         "nome": "Oficina do Betinho",
         "endereco": {
             "cep": "00000-000",
@@ -21,6 +22,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 2,
         "nome": "Oficina do Carlos",
         "endereco": {
             "cep": "00000-001",
@@ -42,6 +44,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 3,
         "nome": "Oficina do João",
         "endereco": {
             "cep": "00000-002",
@@ -63,6 +66,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 4,
         "nome": "Oficina da Maria",
         "endereco": {
             "cep": "00000-003",
@@ -84,6 +88,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 5,
         "nome": "Oficina do Pedro",
         "endereco": {
             "cep": "00000-004",
@@ -105,6 +110,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 6,
         "nome": "Oficina da Ana",
         "endereco": {
             "cep": "00000-005",
@@ -126,6 +132,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 7,
         "nome": "Oficina da Luiza",
         "endereco": {
             "cep": "00000-006",
@@ -147,6 +154,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 8,
         "nome": "Oficina do Marcos",
         "endereco": {
             "cep": "00000-007",
@@ -168,6 +176,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 9,
         "nome": "Oficina do Felipe",
         "endereco": {
             "cep": "00000-008",
@@ -189,6 +198,7 @@ oficinas_cadastradas = [
         ]
     },
     {
+        "id": 10,
         "nome": "Oficina do Eduardo",
         "endereco": {
             "cep": "00000-009",
