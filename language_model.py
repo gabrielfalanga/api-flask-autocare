@@ -2,11 +2,14 @@ import tensorflow_hub as hub
 import tensorflow_text
 from corpus import frases_pastilhas_freio, frases_velas_ignicao, frases_transmissao, frases_alinhamento, \
 frases_superaquecimento_motor, frases_bateria, frases_cambio
+from os import environ
 
 
 # carregando modelo
+PATH_DO_MODELO = environ.get('PATH_LANGUAGE_MODEL_AUTOCARE')
 try:
-    model = hub.load("https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/multilingual/2")
+    # model = hub.load("https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/multilingual/2")
+    model = hub.load(PATH_DO_MODELO)
 except Exception as e:
     print('Erro ao carregar o modelo: ', e)
 

@@ -1,13 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
-from model import embed
-from model import criar_embeddings_treino
+import language_model
+import random_forest_model
 from oficinas import oficinas_cadastradas
+import locale
+
+
+# Configurando o locale para o padrão brasileiro
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 app = Flask(__name__)
 CORS(app)
-embeddings_treino = criar_embeddings_treino()
+embeddings_treino = language_model.criar_embeddings_treino()
 
 
 def criar_mensagem_problema(tipo):
@@ -32,7 +37,7 @@ def criar_mensagem_problema(tipo):
                 'Isso pode ocorrer quando a bateria está no fim de sua vida útil ou quando há falhas no sistema elétrico.')
     elif tipo == "cambio":
             return ('Pelo que você descreveu, o problema parece estar no câmbio do veículo. Isso pode incluir dificuldades ao engatar as marchas, '
-            'barulhos estranhos durante a troca de marchas, ou a sensação de trancos e irregularidades. É recomendável fazer uma revisão completa do sistema de câmbio.')
+            'sensação de trancos, entre outras irregularidades. É recomendável fazer uma revisão completa do sistema de câmbio.')
     elif tipo == 'nao_identificado':
         return 'Desculpe, não entendi. Você poderia descrever sua situação mais detalhadamente?'
 
@@ -44,7 +49,7 @@ def classificar_entrada(texto_entrada):
     if len(texto_entrada.split()) > 2:
 
         # computando embeddings da entrada do usuário
-        emb_entrada = embed(texto_entrada)
+        emb_entrada = language_model.embed(texto_entrada)
 
         # criando lista com a similaridade da entrada com cada uma das frases de treino e suas classificações
         resultado = []
@@ -65,40 +70,56 @@ def classificar_entrada(texto_entrada):
     return tipo, resposta
 
 
-def identificar_servico(tipo_problema):
+def identificar_servico(tipo_problema, orcamento):
     if tipo_problema == 'pastilhas_de_freio':
         return ('Para resolver, pode ser feita uma revisão por um mecânico parceiro. A troca das pastilhas de freio '
-                'do seu carro, incluindo peças e mão de obra, custaria em torno de R$120,00.')
+                f'do seu carro, incluindo peças e mão de obra, custaria em torno de {locale.currency(orcamento, grouping=True)}.')
     elif tipo_problema == 'velas_de_ignicao':
         return ('Como resolução, pode ser agendada uma revisão em uma oficina parceira. A revisão e o ajuste '
-                'necessários custarão aproximadamente R$65,00.')
+                f'necessários custarão aproximadamente {locale.currency(orcamento, grouping=True)}.')
     elif tipo_problema == 'transmissao':
         return ('A solução é simples! Você pode agendar uma revisão com uma de nossas oficinas parceiras. '
-                'O serviço completo, incluindo a troca do fluido de transmissão custa em torno de R$400,00.')
+                f'O serviço completo, incluindo a troca do fluido de transmissão custa em torno de {locale.currency(orcamento, grouping=True)}.')
     elif tipo_problema == 'alinhamento':
         return ('Para resolver esse problema é muito simples. Caso queira você pode realizar um agendamento em nossas oficinas parceiras. '
-                'O serviço completo custa em média R$100,00.')
+                f'O serviço completo custa em média {locale.currency(orcamento, grouping=True)}.')
     elif tipo_problema == 'superaquecimento_motor':
         return ('Para resolver, pode ser agendada uma revisão '
-                'em uma de nossas oficinas parceiras. O custo do conserto pode variar entre R$250,00 e R$1.200,00, dependendo '
+                f'em uma de nossas oficinas parceiras. O custo do conserto é em torno de {locale.currency(orcamento, grouping=True)}, dependendo '
                 'da causa específica.')
     elif tipo_problema == 'bateria':
         return('Para resolver, você pode agendar uma troca em uma oficina parceira. '
-                'O custo médio para trocar a bateria é de aproximadamente R$500,00.')
+               f'O custo para a resolução é de aproximadamente {locale.currency(orcamento, grouping=True)}.')
     elif tipo_problema == "cambio":
-        return ('Para resolver, você pode agendar uma inspeção ou manutenção em uma de nossas oficinas parceiras.' 
-                'O custo do conserto pode variar entre R$800,00 e R$3.000,00, dependendo da gravidade do problema e das peças necessárias.')
+        return ('Para resolver, você pode agendar uma inspeção ou manutenção em uma de nossas oficinas parceiras. ' 
+                f'O custo do conserto é aproximadamente {locale.currency(orcamento, grouping=True)}, dependendo da gravidade do problema e das peças necessárias.')
     elif tipo_problema == 'nao_identificado':
         return ''
 
 
-# Rota para receber dados do frontend
+# rota para receber dados do frontend
 @app.route('/classificar', methods=['POST'])
 def classificar():
     dados = request.json
     entrada = dados.get('input')
     tipo, response = classificar_entrada(texto_entrada=entrada)
-    return jsonify({'tipo': tipo, 'response': response, 'servico': identificar_servico(tipo)})
+    dados = {
+        "Marca": "FORD",
+        "Modelo": "FIESTA",
+        "Ano": 2017,
+        "Câmbio": "Manual",
+        "Combustível": "Gasolina",
+        "Quilometragem": 29764,
+        "Cidade": "Rio de Janeiro",
+        "Problema": tipo
+    }
+    if tipo != 'nao_identificado':
+        orcamento = random_forest_model.calcular_orcamento(dados)
+        print(orcamento)
+    else:
+        orcamento = 0.0
+    return jsonify({'tipo': tipo, 'response': response, 'servico': identificar_servico(tipo, orcamento),
+                    'orcamento': locale.format_string('%.2f', orcamento, grouping=True)})
 
 
 def buscar_oficinas_disponiveis(data: str):
