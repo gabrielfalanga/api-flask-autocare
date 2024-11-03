@@ -12,7 +12,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "4002-8922",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "26-10-2024", "horarios": ["13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"]},
             {"data": "27-10-2024", "horarios": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"]},
@@ -34,7 +34,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "1234-5678",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "26-10-2024", "horarios": ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30"]},
             {"data": "27-10-2024", "horarios": ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "13:00", "14:00"]},
@@ -56,7 +56,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "9876-5432",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "28-10-2024", "horarios": ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"]},
             {"data": "29-10-2024", "horarios": ["09:30", "10:30", "11:00", "11:30", "12:00", "13:00", "14:00", "15:00"]},
@@ -78,7 +78,7 @@ oficinas_cadastradas = [
             "complemento": "Fundos"
         },
         "telefone": "3333-4444",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "27-10-2024", "horarios": ["14:00", "15:00", "15:30", "16:00", "16:30", "17:00"]},
             {"data": "30-10-2024", "horarios": ["10:00", "10:30", "11:00", "12:00", "12:30", "13:00"]},
@@ -100,7 +100,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "5555-6666",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "26-10-2024", "horarios": ["08:00", "09:00", "09:30", "10:00", "10:30"]},
             {"data": "28-10-2024", "horarios": ["10:00", "12:00", "14:00", "15:00", "15:30"]},
@@ -122,7 +122,7 @@ oficinas_cadastradas = [
             "complemento": "Loja 2"
         },
         "telefone": "6666-7777",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "27-10-2024", "horarios": ["09:00", "09:30", "10:00", "10:30", "11:00", "12:00", "13:00"]},
             {"data": "30-10-2024", "horarios": ["13:00", "14:00", "14:30"]},
@@ -144,7 +144,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "1234-8901",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "26-10-2024", "horarios": ["09:00", "10:00", "11:00", "14:00"]},
             {"data": "30-10-2024", "horarios": ["10:30", "11:30", "12:30", "14:00", "15:00", "16:00"]},
@@ -166,7 +166,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "2345-6789",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "27-10-2024", "horarios": ["08:00", "09:00", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00"]},
             {"data": "28-10-2024", "horarios": ["14:30", "15:30", "16:00", "16:30", "17:00"]},
@@ -188,7 +188,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "3456-7890",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "26-10-2024", "horarios": ["14:00", "15:00", "15:30"]},
             {"data": "27-10-2024", "horarios": ["09:30", "10:00", "11:00", "11:30", "12:00", "12:30", "13:00", "14:00"]},
@@ -210,7 +210,7 @@ oficinas_cadastradas = [
             "complemento": ""
         },
         "telefone": "4567-8901",
-        "urlImagem": "/img/robo-autocare.png",
+        "urlImagem": "/assets/img/robo-autocare.png",
         "disponibilidade": [
             {"data": "27-10-2024", "horarios": ["10:00", "11:00", "12:00", "13:00", "14:00"]},
             {"data": "30-10-2024", "horarios": ["09:00", "10:30", "11:30", "12:00"]},
